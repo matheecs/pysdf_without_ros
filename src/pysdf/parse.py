@@ -8,8 +8,7 @@ from xml.etree.ElementTree import ParseError
 import xml.dom.minidom
 import glob
 
-from tf.transformations import *
-
+from pysdf.transformations import *
 from pysdf.naming import *
 from pysdf.conversions import *
 
@@ -24,7 +23,7 @@ if mesh_path_env_name in os.environ:
   catkin_ws_path = os.environ[mesh_path_env_name]
 else:
   catkin_ws_path = os.path.expanduser('~') + '/catkin_ws/src/'
-supported_sdf_versions = [1.4, 1.5, 1.6]
+supported_sdf_versions = [1.4, 1.5, 1.6, 1.7]
 
 catkin_ws_path_exists = os.path.exists(catkin_ws_path)
 
@@ -34,7 +33,7 @@ if not catkin_ws_path_exists:
   print ('Please either set/change %s, or change ' % mesh_path_env_name)
   print ('the catkin_ws_path variable inside pysdf/parse.py')
   print ('----------------------------------------------------------')
-  sys.exit(1)
+  # sys.exit(1)
 
 def sanitize_xml_input_name(text):
   ### removes whitespaces before and after the tag text

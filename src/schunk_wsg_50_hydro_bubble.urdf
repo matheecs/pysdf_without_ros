@@ -1,0 +1,96 @@
+<?xml version="1.0" ?>
+<robot name="Schunk_Gripper">
+  <joint name="Schunk_Gripper__left_finger_sliding_joint" type="prismatic">
+    <parent link="Schunk_Gripper__gripper"/>
+    <child link="Schunk_Gripper__left_finger_bubble"/>
+    <origin xyz="0       0      -0.07249" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.055" upper="0.0" effort="80.0" velocity="0.0"/>
+  </joint>
+  <joint name="Schunk_Gripper__left_finger_weld_joint" type="fixed">
+    <parent link="Schunk_Gripper__left_finger_bubble"/>
+    <child link="Schunk_Gripper__left_finger"/>
+    <origin xyz="0      0     -0.1175" rpy="0 0 0"/>
+    <axis xyz="0 0 0"/>
+    <limit lower="0" upper="0" effort="0" velocity="0"/>
+  </joint>
+  <joint name="Schunk_Gripper__right_finger_sliding_joint" type="prismatic">
+    <parent link="Schunk_Gripper__gripper"/>
+    <child link="Schunk_Gripper__right_finger_bubble"/>
+    <origin xyz="0       0      -0.07249" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0.0" upper="0.055" effort="80.0" velocity="0.0"/>
+  </joint>
+  <joint name="Schunk_Gripper__right_finger_weld_joint" type="fixed">
+    <parent link="Schunk_Gripper__right_finger_bubble"/>
+    <child link="Schunk_Gripper__right_finger"/>
+    <origin xyz="0      0     -0.1175" rpy="0 0 0"/>
+    <axis xyz="0 0 0"/>
+    <limit lower="0" upper="0" effort="0" velocity="0"/>
+  </joint>
+  <link name="Schunk_Gripper__gripper">
+    <inertial>
+      <mass value="0.988882"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.162992" ixy="0" ixz="0" iyy="0.162992" iyz="0" izz="0.164814"/>
+    </inertial>
+    <visual name="Schunk_Gripper__gripper mesh">
+      <origin xyz="0       0      -0.03599" rpy="-1.5708  0     -1.5708"/>
+      <geometry>
+        <mesh filename="package://PATHTOMESHES/wsg_50_description/meshes/wsg_body.obj" scale="1 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Schunk_Gripper__left_finger_bubble">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.16" ixy="0" ixz="0" iyy="0.16" iyz="0" izz="0.16"/>
+    </inertial>
+    <visual name="Schunk_Gripper__left_finger_visual_mesh">
+      <origin xyz="0 0 0" rpy="1.5708  0      3.14159"/>
+      <geometry>
+        <mesh filename="package://PATHTOMESHES/wsg_50_hydro_bubble/meshes/bubble_finger.obj" scale=".001 .001 .001"/>
+      </geometry>
+    </visual>
+    <visual name="Schunk_Gripper__left_finger_bubble">
+      <origin xyz="0     -0.03   -0.1095" rpy="3.14159 1.57079 1.57079"/>
+      <geometry>
+        <mesh filename="package://PATHTOMESHES/wsg_50_hydro_bubble/meshes/ellipsoid_bubble_geometry.obj" scale=".001 .001 .001"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Schunk_Gripper__left_finger">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.16" ixy="0" ixz="0" iyy="0.16" iyz="0" izz="0.16"/>
+    </inertial>
+  </link>
+  <link name="Schunk_Gripper__right_finger_bubble">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.16" ixy="0" ixz="0" iyy="0.16" iyz="0" izz="0.16"/>
+    </inertial>
+    <visual name="Schunk_Gripper__right_finger_visual_mesh">
+      <origin xyz="0 0 0" rpy="1.5708 0     0"/>
+      <geometry>
+        <mesh filename="package://PATHTOMESHES/wsg_50_hydro_bubble/meshes/bubble_finger.obj" scale=".001 .001 .001"/>
+      </geometry>
+    </visual>
+    <visual name="Schunk_Gripper__right_finger_bubble">
+      <origin xyz="0      0.03   -0.1095" rpy="3.14159  1.57079 -1.57079"/>
+      <geometry>
+        <mesh filename="package://PATHTOMESHES/wsg_50_hydro_bubble/meshes/ellipsoid_bubble_geometry.obj" scale=".001 .001 .001"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="Schunk_Gripper__right_finger">
+    <inertial>
+      <mass value="0.05"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.16" ixy="0" ixz="0" iyy="0.16" iyz="0" izz="0.16"/>
+    </inertial>
+  </link>
+</robot>

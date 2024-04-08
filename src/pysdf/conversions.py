@@ -2,8 +2,8 @@ from __future__ import print_function
 
 import numbers
 
-from tf.transformations import *
-from geometry_msgs.msg import Pose
+from pysdf.transformations import *
+from pysdf.ros_geometry_msgs import Pose
 
 
 
